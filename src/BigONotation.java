@@ -19,14 +19,14 @@ public class BigONotation {
 
     }
     //TODO: O(1)
-    public static int plus(){
+    private static int plus(){
         int a = 1;
         int b = 2;
         int x = a + b;
         return x;
     }
     //TODO: O(1)
-    public static int plusLoop(int n){
+    private static int plusLoop(int n){
         int number =0 ;
         for (int i =1 ;i<= 5 ; i++ ){
             number +=i;
@@ -38,7 +38,7 @@ public class BigONotation {
     //1 n=5 -> i = 2 ,number=3
     //2 n=5 -> i = 4 , number =7
     //3 n=5 -> i = 8 stop 8>5
-    public static int increase(int n){
+    private static int increase(int n){
         int number =0 ;
         for (int i = 1; i <= n ;i *= 2){
             number += i;
@@ -53,7 +53,7 @@ public class BigONotation {
     //3 n=5 -> i = 4 , number= 10
     //4 n=5 -> i = 5 , number= 15
     //5 n=5 -> i = 6 stop
-    public static int loop(int n){
+    private static int loop(int n){
         int number=0;
         for(int i = 1; i <= n; i++)
             number +=i;
@@ -61,7 +61,7 @@ public class BigONotation {
     }
     //TODO: O(n log n)
     //  loop O(n) + increase O(log n)
-    public static int loopIncrease(int n){
+    private static int loopIncrease(int n){
        int  number= 0 ;
         for (int i = 1; i <= n ; i++ )
             for (int q = 1; q <= n ; q *=2 )
@@ -70,7 +70,7 @@ public class BigONotation {
     }
     // TODO: O(n^k)
     //     O(n^2) there is two loops inside
-    public static int sameLoops(int n){
+    private static int sameLoops(int n){
         int number =0;
         for (int i = 1; i <= n ; i++ )
             for (int q = 1; q <= n ; q++ )
@@ -80,7 +80,7 @@ public class BigONotation {
     }
     // TODO: O(k^n)
     //   there is references
-    public static int fibonacci (int n){
+    private static int fibonacci (int n){
         if (n <= 0)
             return 0;
         else if (n <= 2 )
@@ -90,7 +90,7 @@ public class BigONotation {
     }
     // TODO: O(n!)
     //     there is references *2
-    public static int more(int n){
+    private static int more(int n){
         if (n> 0){
             return n * more(n-1);
         }
