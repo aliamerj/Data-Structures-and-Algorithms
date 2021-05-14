@@ -1,4 +1,4 @@
-package LinkedList;
+package LinkedList ;
 
 import java.util.Arrays;
 import java.util.NoSuchElementException;
@@ -37,7 +37,7 @@ public class LinkedList {
             last.next = node;
             last = node;
         }
-        size +=2;
+        size++;
     }
 
     private boolean isEmpty() {
@@ -230,5 +230,45 @@ public class LinkedList {
             node= node.next;
         return node;
     }
+
+    public Node deleteDuplicates(Node head ){
+        Node current = first;
+        Node other = first.next;
+        var node = new Node(0,null);
+        while (current.value != other.value) {
+            current = current.next;
+            if (current == null){
+                other = current.next;
+                current = first;
+            }
+            if (current.value == other.value)
+                removeByValue(current.value);
+        }
+        return node;
+    }
+
+    public void removeByValue(int item) {
+        Node current = first;
+        Node prev = null;
+
+        if (current != null && current.value == item) {
+            first = current.next;
+            return;}
+
+        while (current != null && current.value != item){
+            prev = current;
+            current = current.next;
+        }
+        if (current == null)
+            return;
+
+        prev.next = current.next;
+
+        size--;
+
+
+    }
+
+
 
 }
