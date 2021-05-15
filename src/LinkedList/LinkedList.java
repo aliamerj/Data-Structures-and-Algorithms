@@ -4,9 +4,10 @@ import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class LinkedList {
-    private class Node {
-        public int  value;
-        public Node next;
+     class Node {
+         int  value;
+         Node next;
+
         private Object Obj;
         public  Node(int value, Object obj) {
             this.value = value;
@@ -25,7 +26,7 @@ public class LinkedList {
             return array;
         }
     }
-    public Node first;
+     Node first;
     public Node last;
     private int size;
 
@@ -268,7 +269,49 @@ public class LinkedList {
 
 
     }
+    public boolean cycleList(){
+       var node = new Node(0,null);
+       var fast = first;
+       var slow = first;
+        int cyclelen =0;
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast ){
+            while (slow != fast ){
+                cyclelen++;
+                fast = fast.next;
+                     }
+            var start = first;
+            while (cyclelen -- > 0 )
+                start = start.next;
+
+            var iter = first;
+            while (iter != start){
+                iter = iter.next;
+                start = start.next;
+            }
+                return true;
+            }
+        }
+
+        return false ;
+    }
 
 
 
-}
+
+
+
+
+
+
+//    public void MakeLoop(Node node1 , Node with){
+//        var node = new Node(0,null);
+//        if (node1 != null && with != null ){
+//             node.next = node1;
+//             node = with;
+
+//
+
+      }
