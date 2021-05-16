@@ -7,15 +7,16 @@ import static LinkedList.LinkedList.*;
 public class Main {
      public static void main(String[] args) {
         var list = new LinkedList();
+         list.addLast(4);
          list.addLast(3);
          list.addLast(2);
          list.addLast(1);
-         list.first.next.next = list.first;
+      //   printList(list);
+         list.deleteNode(list.first);
+         printList(list);
+       //  System.out.println(list.lookFor(list.first.next.next));
 
-      //  list.MakeLoop(list.first, list.first.next.next);
-
-         System.out.println(list.cycleList());
-
+      //   print(list.cycleList(),1);
 
     }
 }

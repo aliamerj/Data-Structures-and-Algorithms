@@ -269,41 +269,60 @@ public class LinkedList {
 
 
     }
-    public boolean cycleList(){
-       var node = new Node(0,null);
+    public Node cycleList(){
        var fast = first;
        var slow = first;
-        int cyclelen =0;
         while (fast != null && fast.next != null){
             slow = slow.next;
             fast = fast.next.next;
             if (slow == fast ){
-            while (slow != fast ){
-                cyclelen++;
-                fast = fast.next;
-                     }
-            var start = first;
-            while (cyclelen -- > 0 )
-                start = start.next;
-
-            var iter = first;
-            while (iter != start){
-                iter = iter.next;
-                start = start.next;
-            }
-                return true;
+                var start = first;
+                var iter = first;
+                size =1 ;
+                return iter;
             }
         }
 
+        return null ;
+    }
+    public boolean hasCycle(Node head){
+        var fast = head;
+        var slow = head;
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast ){
+                return true;
+            }
+        }
         return false ;
     }
 
+    // [] = return null
+    // if exist or not --> <false>if node not in linked list => null
+    //                      <true> if is exist => delete it
+    public void deleteNode(Node node) {
+        if (first != null && lookFor(node)){
+            node.value = node.next.value;
+            node.next = node.next.next;
+            size--;
+        }
 
 
+    }
+
+    private boolean lookFor(Node nodeItem) {
+        var current = first;
+
+        while (current != null){
+            if(current != nodeItem)
+            current = current.next;
+            else return true;
+        }
+            return false;
 
 
-
-
+    }
 
 
 //    public void MakeLoop(Node node1 , Node with){
