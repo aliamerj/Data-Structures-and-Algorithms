@@ -1,64 +1,21 @@
-import java.util.ArrayList;
-import java.util.Arrays;
+package Arrays;
 
-public class ArraysConcept {
-    public static void main(String[] args) {
-        //todo first
-//        int[] numbers = {1 , 2 ,3};
-//        System.out.println(Arrays.toString(numbers));
+import org.junit.jupiter.api.Test;
 
-        // todo second
-        var list1 = new List(3);
-        list1.insert(30);
-        list1.insert(50);
-        list1.insert(90);
-        list1.insert(60);
-        list1.insert(4);
-        list1.remove(3);
-        System.out.println(list1.indexOf(60));
-        list1.print();
-        System.out.println("the max number is : "+ list1.max());
-        System.out.println("the min number is : "+ list1.min());
-        var list2 = new List(4);
-        list2.insert(1);
-        list2.insert(50);
-        list2.insert(2);
-        list2.insert(3);
-        list2.insert(4);
-        System.out.println(" here ");
-        list1.intersect(list2);
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
-
-
-
-
-        // todo third
-//        ArrayList<Integer> list = new ArrayList<>();
-//        list.add(10);
-//        list.add(20);
-//        list.add(30);
-//        list.add(40);
-//        list.remove(0);
-//        System.out.println(list);
-
-
-
-    }
-
-}
-//TODO:- NEW CLASS HERE
-class List {
+public class Arrays {
     private int[] items;
     private int count;
 
-    public List(int length) {
+    public Arrays(int length) {
         items = new int[length];
     }
 
     public void print(){
         for (int i =0 ; i < count ; i++)
             System.out.println(items[i]);
-
     }
     public void insert(int item){
         // if array is full
@@ -113,8 +70,8 @@ class List {
         return min;
 
     }
-    public void intersect(List other) {
-        var intersection = new List(count);
+    public void intersect(Arrays other) {
+        var intersection = new Arrays(count);
 
         for (int item : items)
             if (other.indexOf(item) >= 0)
@@ -129,6 +86,17 @@ class List {
 
         items = newItems;
     }
+    public String toString() {
+        var array = new Arrays(count);
+        int[] list = new int[count];
+        for (int i= 0;  i < count ; i++)
+            list[i] = items[i];
+        return java.util.Arrays.toString(list);
     }
+
+    public int index(int index) {
+        return items[index];
+    }
+}
 
 
